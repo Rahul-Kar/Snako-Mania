@@ -91,7 +91,8 @@ const keyEvent = (e) => {
     e.key === "w" ||
     e.key === "s" ||
     e.key === "a" ||
-    e.key === "d"
+    e.key === "d" ||
+     e.key === "Enter"
   ) {
     move_Music.play();
   }
