@@ -20,9 +20,9 @@ const btn = document.querySelector(".btn");
 let highscore_val = 0;
 let HighScore;
 
-window.onload = (e) => {
-  bgMusic.play();
-};
+// window.onload = (e) => {
+//   bgMusic.play();
+// };
 // creating the game loop...
 const main = (currentTime) => {
   window.requestAnimationFrame(main);
@@ -49,6 +49,23 @@ if (HighScore === null) {
 const keyEvent = (e) => {
   bgMusic.play();
   switch (e.key) {
+    case "w":
+      if (last_inputDiection.y != 0) break;
+      inputDiection = { x: 0, y: -1 };
+      break;
+    case "s":
+      if (last_inputDiection.y != 0) break;
+      inputDiection = { x: 0, y: 1 };
+      break;
+    case "d":
+      if (last_inputDiection.x != 0) break;
+      inputDiection = { x: 1, y: 0 };
+      break;
+    case "a":
+      if (last_inputDiection.x != 0) break;
+      inputDiection = { x: -1, y: 0 };
+      break;
+
     case "ArrowUp":
       if (last_inputDiection.y != 0) break;
       inputDiection = { x: 0, y: -1 };
@@ -70,7 +87,11 @@ const keyEvent = (e) => {
     e.key === "ArrowUp" ||
     e.key === "ArrowDown" ||
     e.key === "ArrowLeft" ||
-    e.key === "ArrowRight"
+    e.key === "ArrowRight" ||
+    e.key === "w" ||
+    e.key === "s" ||
+    e.key === "a" ||
+    e.key === "d"
   ) {
     move_Music.play();
   }
@@ -165,6 +186,12 @@ const display = () => {
 btn.addEventListener("click", (e) => {
   window.location.reload();
 });
+window.onkeydown = (e) => {
+  console.log(e.key);
+  if (e.key === "Enter") {
+    window.location.reload();
+  }
+};
 
 // function for taking the input..
 const getInputs = () => {
