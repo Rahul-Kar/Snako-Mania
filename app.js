@@ -1,6 +1,6 @@
 // constants and varibales....
 let lastUpdate_Time = 0;
-let speed = 8;
+let speed = 20;
 const game_box = document.querySelector(".game_box");
 let snakeArr = [{ x: 7, y: 5 }];
 let food = { x: 13, y: 15 };
